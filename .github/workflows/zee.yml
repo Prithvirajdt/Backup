@@ -36,7 +36,7 @@ jobs:
           wget -q -O sources/zeenew.m3u "$SRC_ZEENEW" || echo "ZEE NEW failed"
 
       # --------------------------------------------------
-      # STEP 4: ZEE NEW (FILTER + NORMALIZE + REMOVE BY NAME)
+      # STEP 4: ZEE NEW (FILTER + NORMALIZE + REMOVE BY NAME) fix --  || tolower(block) ~ /,and/
       # --------------------------------------------------
       - name: Process ZEE NEW
         run: |
@@ -44,7 +44,7 @@ jobs:
           BEGIN { RS="#EXTINF"; ORS="" }
           NR>1 {
             block="#EXTINF"$0
-            if (tolower(block) ~ /zee/ || tolower(block) ~ /,and/) print block
+            if (tolower(block) ~ /zee/) print block
           }
           ' sources/zeenew.m3u \
           | grep -Ev 'group-title="(Business News|News)"' \
