@@ -884,6 +884,13 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/ET_Now_BTS/output/index.mpd?__hdnea__=st=
 #EXTHTTP:{"cookie":"__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/India24x7_BTS/output/index.mpd?__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65&xxx=%7Ccookie=__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65
 
+#EXTINF:-1 tvg-id="2252" group-title="Music" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Desi_Music_Station.png",Desi Music Station
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e5c53427c790509ca9bf36e49b60b9fe:01705766fa40219ff290c2685e71a300
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Desi_Music_Station_BTS/output/index.mpd?__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65&xxx=%7Ccookie=__hdnea__=st=1773493314~exp=1773579714~acl=/*~hmac=5a87c711c45d0f448b2d5825fa96e1559f77d4896e47942ae55f56b074b9ad65
+
 #EXTINF:-1 tvg-id="2258" group-title="Entertainment" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Animax.png",Animax
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=3aa4315e260952699373b61cac44cdc0:85f4575328f290b1f468086d6bc157ed
