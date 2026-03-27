@@ -182,6 +182,8 @@ http://103.180.212.191:3500/live/794.m3u8
 http://103.180.212.191:3500/live/801.m3u8
 #EXTINF:-1 tvg-id="815" tvg-name="Sonic Hindi" tvg-logo="http://103.180.212.191:3500/jtvimage/sonic_Hindi.png" tvg-language="Hindi" tvg-type="Kids" group-title="Kids", Sonic Hindi
 http://103.180.212.191:3500/live/815.m3u8
+#EXTINF:-1 tvg-id="816" tvg-name="Cartoon Network Hindi" tvg-logo="http://103.180.212.191:3500/jtvimage/CNHindi.png" tvg-language="Hindi" tvg-type="Kids" group-title="Kids", Cartoon Network Hindi
+http://103.180.212.191:3500/live/816.m3u8
 #EXTINF:-1 tvg-id="828" tvg-name="Shubh TV" tvg-logo="http://103.180.212.191:3500/jtvimage/Shubh_TV.png" tvg-language="Hindi" tvg-type="Devotional" group-title="Devotional", Shubh TV
 http://103.180.212.191:3500/live/828.m3u8
 #EXTINF:-1 tvg-id="831" tvg-name="Living India News" tvg-logo="http://103.180.212.191:3500/jtvimage/Living_India_News.png" tvg-language="Hindi" tvg-type="News" group-title="News", Living India News
