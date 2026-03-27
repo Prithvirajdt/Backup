@@ -124,11 +124,11 @@ jobs:
 
             { if (keep==1) print }
 
-            ' sources/jai_raw.m3u
+            ' sources/jaiback_raw.m3u
 
           } > sources/jaiback.vxn
 
-          rm -f sources/jai_raw.m3u
+          rm -f sources/jaiback_raw.m3u
 
       # ============================================
       # STEP 5: COMMIT & PUSH
