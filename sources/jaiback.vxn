@@ -1,6 +1,6 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-id="143" tvg-name="CNBC TV18 Prime" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCTV18Prime.png" tvg-language="English" tvg-type="Business" group-title="Business", CNBC TV18 Prime
+#EXTINF:-1 tvg-id="143" tvg-name="CNBC TV18 Prime" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCTV18Prime.png" tvg-language="English" tvg-type="Business" group-title="News", CNBC TV18 Prime
 http://103.180.212.191:3500/live/143.m3u8 
 #EXTINF:-1 tvg-id="144" tvg-name="Colors HD" tvg-logo="http://103.180.212.191:3500/jtvimage/ColorsHD.png" tvg-language="Hindi" tvg-type="Entertainment" group-title="Entertainment", Colors HD
 http://103.180.212.191:3500/live/144.m3u8
@@ -20,7 +20,7 @@ http://103.180.212.191:3500/live/177.m3u8
 http://103.180.212.191:3500/live/182.m3u8
 #EXTINF:-1 tvg-id="183" tvg-name="B4U Music" tvg-logo="http://103.180.212.191:3500/jtvimage/B4U_Music.png" tvg-language="Hindi" tvg-type="Music" group-title="Music", B4U Music
 http://103.180.212.191:3500/live/183.m3u8
-#EXTINF:-1 tvg-id="190" tvg-name="CNBC Awaaz" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCAwaaz.png" tvg-language="Hindi" tvg-type="Business" group-title="Business", CNBC Awaaz
+#EXTINF:-1 tvg-id="190" tvg-name="CNBC Awaaz" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCAwaaz.png" tvg-language="Hindi" tvg-type="Business" group-title="News", CNBC Awaaz
 http://103.180.212.191:3500/live/190.m3u8
 #EXTINF:-1 tvg-id="193" tvg-name="CNN" tvg-logo="http://103.180.212.191:3500/jtvimage/CNN.png" tvg-language="English" tvg-type="News" group-title="News", CNN
 http://103.180.212.191:3500/live/193.m3u8
@@ -30,7 +30,7 @@ http://103.180.212.191:3500/live/202.m3u8
 http://103.180.212.191:3500/live/203.m3u8
 #EXTINF:-1 tvg-id="204" tvg-name="DD Sports" tvg-logo="http://103.180.212.191:3500/jtvimage/DD_Sports.png" tvg-language="Hindi" tvg-type="Sports" group-title="Sports", DD Sports
 http://103.180.212.191:3500/live/204.m3u8
-#EXTINF:-1 tvg-id="212" tvg-name="ET Now" tvg-logo="http://103.180.212.191:3500/jtvimage/ET_Now.png" tvg-language="English" tvg-type="Business" group-title="Business", ET Now
+#EXTINF:-1 tvg-id="212" tvg-name="ET Now" tvg-logo="http://103.180.212.191:3500/jtvimage/ET_Now.png" tvg-language="English" tvg-type="Business" group-title="News", ET Now
 http://103.180.212.191:3500/live/212.m3u8
 #EXTINF:-1 tvg-id="231" tvg-name="News 18 India" tvg-logo="http://103.180.212.191:3500/jtvimage/IBN_7.png" tvg-language="Hindi" tvg-type="News" group-title="News", News 18 India
 http://103.180.212.191:3500/live/231.m3u8
@@ -48,7 +48,7 @@ http://103.180.212.191:3500/live/250.m3u8
 http://103.180.212.191:3500/live/255.m3u8
 #EXTINF:-1 tvg-id="258" tvg-name="NDTV India" tvg-logo="http://103.180.212.191:3500/jtvimage/NDTV_India.png" tvg-language="Hindi" tvg-type="News" group-title="News", NDTV India
 http://103.180.212.191:3500/live/258.m3u8
-#EXTINF:-1 tvg-id="259" tvg-name="NDTV Profit" tvg-logo="http://103.180.212.191:3500/jtvimage/NDTV_Profit.png" tvg-language="English" tvg-type="Business" group-title="Business", NDTV Profit
+#EXTINF:-1 tvg-id="259" tvg-name="NDTV Profit" tvg-logo="http://103.180.212.191:3500/jtvimage/NDTV_Profit.png" tvg-language="English" tvg-type="Business" group-title="News", NDTV Profit
 http://103.180.212.191:3500/live/259.m3u8
 #EXTINF:-1 tvg-id="279" tvg-name="Colors Rishtey" tvg-logo="http://103.180.212.191:3500/jtvimage/ColorsRishtey.png" tvg-language="Hindi" tvg-type="Entertainment" group-title="Entertainment", Colors Rishtey
 http://103.180.212.191:3500/live/279.m3u8
@@ -78,7 +78,7 @@ http://103.180.212.191:3500/live/477.m3u8
 http://103.180.212.191:3500/live/479.m3u8
 #EXTINF:-1 tvg-id="482" tvg-name="Colors Cineplex" tvg-logo="http://103.180.212.191:3500/jtvimage/Colors_Cineplex.png" tvg-language="Hindi" tvg-type="Movies" group-title="Movies", Colors Cineplex
 http://103.180.212.191:3500/live/482.m3u8
-#EXTINF:-1 tvg-id="489" tvg-name="CNBC TV18" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCTV18.png" tvg-language="English" tvg-type="Business" group-title="Business", CNBC TV18
+#EXTINF:-1 tvg-id="489" tvg-name="CNBC TV18" tvg-logo="http://103.180.212.191:3500/jtvimage/CNBCTV18.png" tvg-language="English" tvg-type="Business" group-title="News", CNBC TV18
 http://103.180.212.191:3500/live/489.m3u8
 #EXTINF:-1 tvg-id="491" tvg-name="Mirror Now" tvg-logo="http://103.180.212.191:3500/jtvimage/Mirror_Now.png" tvg-language="English" tvg-type="News" group-title="News", Mirror Now
 http://103.180.212.191:3500/live/491.m3u8
@@ -160,7 +160,7 @@ http://103.180.212.191:3500/live/611.m3u8
 http://103.180.212.191:3500/live/612.m3u8
 #EXTINF:-1 tvg-id="652" tvg-name="Zee Bharat" tvg-logo="http://103.180.212.191:3500/jtvimage/Zee_SANGAM.png" tvg-language="Hindi" tvg-type="News" group-title="News", Zee Bharat
 http://103.180.212.191:3500/live/652.m3u8
-#EXTINF:-1 tvg-id="657" tvg-name="Zee Business" tvg-logo="http://103.180.212.191:3500/jtvimage/Zee_Business.png" tvg-language="Hindi" tvg-type="Business" group-title="Business", Zee Business
+#EXTINF:-1 tvg-id="657" tvg-name="Zee Business" tvg-logo="http://103.180.212.191:3500/jtvimage/Zee_Business.png" tvg-language="Hindi" tvg-type="Business" group-title="News", Zee Business
 http://103.180.212.191:3500/live/657.m3u8
 #EXTINF:-1 tvg-id="695" tvg-name="DD Sahayadri" tvg-logo="http://103.180.212.191:3500/jtvimage/DD_Sahayadri.png" tvg-language="Marathi" tvg-type="Entertainment" group-title="Entertainment", DD Sahayadri
 http://103.180.212.191:3500/live/695.m3u8
@@ -352,7 +352,7 @@ http://103.180.212.191:3500/live/1895.m3u8
 http://103.180.212.191:3500/live/1900.m3u8
 #EXTINF:-1 tvg-id="1906" tvg-name="Times Now Navbharat" tvg-logo="http://103.180.212.191:3500/jtvimage/Times_Now_Navbharat.png" tvg-language="Hindi" tvg-type="News" group-title="News", Times Now Navbharat
 http://103.180.212.191:3500/live/1906.m3u8
-#EXTINF:-1 tvg-id="1907" tvg-name="ET Now Swadesh" tvg-logo="http://103.180.212.191:3500/jtvimage/ET_Now_Swadesh.png" tvg-language="Hindi" tvg-type="Business" group-title="Business", ET Now Swadesh
+#EXTINF:-1 tvg-id="1907" tvg-name="ET Now Swadesh" tvg-logo="http://103.180.212.191:3500/jtvimage/ET_Now_Swadesh.png" tvg-language="Hindi" tvg-type="Business" group-title="News", ET Now Swadesh
 http://103.180.212.191:3500/live/1907.m3u8
 #EXTINF:-1 tvg-id="1955" tvg-name="Foodxp" tvg-logo="http://103.180.212.191:3500/jtvimage/Food_XP.png" tvg-language="Hindi" tvg-type="Lifestyle" group-title="Lifestyle", Foodxp
 http://103.180.212.191:3500/live/1955.m3u8
@@ -478,9 +478,9 @@ http://103.180.212.191:3500/live/3111.m3u8
 http://103.180.212.191:3500/live/3115.m3u8
 #EXTINF:-1 tvg-id="3146" tvg-name="All Women's Sports Network" tvg-logo="http://103.180.212.191:3500/jtvimage/AWSN.png" tvg-language="English" tvg-type="Sports" group-title="Sports", All Women's Sports Network
 http://103.180.212.191:3500/live/3146.m3u8
-#EXTINF:-1 tvg-id="3154" tvg-name="Bloomberg Originals" tvg-logo="http://103.180.212.191:3500/jtvimage/Bloomberg_Originals.png" tvg-language="English" tvg-type="Business" group-title="Business", Bloomberg Originals
+#EXTINF:-1 tvg-id="3154" tvg-name="Bloomberg Originals" tvg-logo="http://103.180.212.191:3500/jtvimage/Bloomberg_Originals.png" tvg-language="English" tvg-type="Business" group-title="News", Bloomberg Originals
 http://103.180.212.191:3500/live/3154.m3u8
-#EXTINF:-1 tvg-id="3155" tvg-name="Bloomberg TV+" tvg-logo="http://103.180.212.191:3500/jtvimage/Bloomberg_TV.png" tvg-language="English" tvg-type="Business" group-title="Business", Bloomberg TV+
+#EXTINF:-1 tvg-id="3155" tvg-name="Bloomberg TV+" tvg-logo="http://103.180.212.191:3500/jtvimage/Bloomberg_TV.png" tvg-language="English" tvg-type="Business" group-title="News", Bloomberg TV+
 http://103.180.212.191:3500/live/3155.m3u8
 #EXTINF:-1 tvg-id="3162" tvg-name="Prabhu Vani Tv" tvg-logo="http://103.180.212.191:3500/jtvimage/Prabhu_Vani_Tv.png" tvg-language="Hindi" tvg-type="Devotional" group-title="Devotional", Prabhu Vani Tv
 http://103.180.212.191:3500/live/3162.m3u8
@@ -562,8 +562,6 @@ http://103.180.212.191:3500/live/3338.m3u8
 http://103.180.212.191:3500/live/3343.m3u8
 #EXTINF:-1 tvg-id="3345" tvg-name="Superfine Films" tvg-logo="http://103.180.212.191:3500/jtvimage/p_supjio.png" tvg-language="Hindi" tvg-type="Movies" group-title="Movies", Superfine Films
 http://103.180.212.191:3500/live/3345.m3u8
-#EXTINF:-1 tvg-id="3346" tvg-name="Yahoo Finance" tvg-logo="http://103.180.212.191:3500/jtvimage/Yahoo_Finance.png" tvg-language="English" tvg-type="Business" group-title="Business", Yahoo Finance
-http://103.180.212.191:3500/live/3346.m3u8
 #EXTINF:-1 tvg-id="3353" tvg-name="NE Bharat24" tvg-logo="http://103.180.212.191:3500/jtvimage/NE_Bharat24.png" tvg-language="Assamese" tvg-type="News" group-title="News", NE Bharat24
 http://103.180.212.191:3500/live/3353.m3u8
 #EXTINF:-1 tvg-id="3361" tvg-name="Shri Shyam TV " tvg-logo="http://103.180.212.191:3500/jtvimage/Shri_Shyam_TV.png" tvg-language="Hindi" tvg-type="Devotional" group-title="Devotional", Shri Shyam TV 
