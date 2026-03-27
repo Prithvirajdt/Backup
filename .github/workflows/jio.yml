@@ -63,6 +63,8 @@ jobs:
                   keep=1
                   gsub(/group-title="Business News"/, "group-title=\"News\"", $0)
                   gsub(/group-title="Education"/, "group-title=\"Educational\"", $0)
+                  gsub(/group-title="Marathi"/, "group-title=\"Entertainment\"", $0)        
+                  gsub(/group-title="English"/, "group-title=\"Movies\"", $0)
                   print
                 } else {
                   keep=0
