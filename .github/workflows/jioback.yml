@@ -29,6 +29,11 @@ jobs:
         env:
           SRC_JTVBACK: ${{ secrets.SRC_JTVBACK }}
         run: |
+          set -e
+          if [ -z "$SRC_JTVBACK" ]; then
+            echo "ERROR: SRC_JTVBACK secret is not set"
+            exit 1
+          fi
           wget -q -O sources/jtvback_source.m3u "$SRC_JTVBACK"
 
       # ============================================
@@ -81,24 +86,11 @@ jobs:
             }
 
             # ----------------------------------------
-            # DEMO BLOCK
-            # ----------------------------------------
-            function custom_group_edit(line) {
-              # Example:
-              # if (line ~ /Star Sports/) {
-              #   sub(/group-title="[^"]*"/, "group-title=\"Premium Sports\"", line)
-              # }
-              return line
-            }
-
-            # ----------------------------------------
-            # MAIN PROCESSING (FIX APPLIED FIRST)
+            # MAIN PROCESSING
             # ----------------------------------------
             /^#EXTINF/ {
 
-              # APPLY FIX FIRST
               $0 = fix_group_titles($0)
-              $0 = custom_group_edit($0)
 
               is_news = ($0 ~ /group-title="News"/ || $0 ~ /group-title="Business News"/)
 
@@ -124,11 +116,11 @@ jobs:
 
             { if (keep==1) print }
 
-            ' sources/jaiback_raw.m3u
+            ' sources/jtvback_source.m3u
 
           } > sources/jaiback.vxn
 
-          rm -f sources/jaiback_raw.m3u
+          rm -f sources/jtvback_source.m3u
 
       # ============================================
       # STEP 5: COMMIT & PUSH
