@@ -90,8 +90,8 @@ jobs:
             # ----------------------------------------
             function custom_group_edit(line) {
               # Example:
-              # if (line ~ /Star Sports/) {
-              #   sub(/group-title="[^"]*"/, "group-title=\"Premium Sports\"", line)
+              # if (line ~ /Sony BBC Earth HD/) {
+              #   sub(/group-title="[^"]*"/, "group-title=\"Infotainment\"", line)
               # }
               return line
             }
