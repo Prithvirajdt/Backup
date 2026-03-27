@@ -37,30 +37,45 @@ jobs:
             BEGIN { IGNORECASE=1; keep=0 }
 
             function is_blocked(line) {
-              return (line ~ /tamil|telugu|kannada|bangla|malayalam|test|wow|swayam|sathee/)
+              return (line ~ /tamil|telugu|kannada|bangla|malayalam|test|wow|swayam|sathee|ap-|yadagiri|vidya|gujarat|bengali|asianet|maa|ptc|vijay|etv|aath|rongeen|raj|punjab|manorama|mahaa|jaya|gemini|udaya|salaam|surya|adithya|Cartoon Network Hindi$|amrita|colors super$|arunprabha|girnar|kashir|oriya|saptagiri|urdu|podhigai|desi c|desi n|desika|kairali|jalsha|studio|apex|flower|jonack|kalaignar|makkal|may|mk|moon|nakshatra|bangalore|peppers|polimer|puthu|sanjha|sidharth|spondon|kiran|sun tv|sundrani|suvarna|thanthi|vaanavil|vasanth|vendhar|vissa|jomjomat|j movies|ktv|maha|mahua|pitaara|public m|sun life|tabbar|thalaa|e 24$|chintu|chutti|kochu|kushi|naap|east|sun music|sun news|nick junior|sonic marathi$|rang|sristi|teh|4 tv|6 tv|10 tv|99 tv|ananda|asmita|ganga|abc|abn|chanakya|harya|mp|ghanta|kalak|jhar|nepal|taiwan|karn|kera|bihar|mh|pradesh|him|goman|kau|logy|uk|svbc|news up|bhoj|balle|7x|kappa|record|only|oye|rs bh|dhenu|tune|angel|bhakti tv|calvary|win|divya v|dharmam|gurk|nambikkai|mercy|goodness|jothi|madha|powervision|shalom|ayush|vanitha|jio e|jio s|jiog|cvr|kite|hhdl|grace|aradh|bhawan|adhyatam|atma|subhav|om tv|subhsandesh|shubhsan|prabhu sandesh|harvest|medha|ptd|gyanv|set sd|fakt|oscar|k mar|+ mar|go mar|aarya|zb|thirai|ee power|cinemalu|roja|amar d|channel vision|captain$|brio|friends tv|kannur|tank|sana tv|sana plus|jio home|bhakthi siri|bvtv|gospel|hosanna|prar|popli|loveworld|t sat|sanjh|malanadu|purnima|janapriyam|sarthak|steelbird|sikh|peace music|alankar|centa|icmai|book|stingray|cn hd|big boss|disney hd|dangal/)
             }
 
             function is_allowed_news(line) {
-              return (line ~ /zee|aaj tak|ndtv|india|today|cnn|cnbc|abp|republic|wion|dd/)
+              return (line ~ /zee|aaj tak|ndtv|india|today|cnn|cnbc|abp|top|euro|asia|republic|wion|bharat|dd|sansad|lok|nation|firstpost|now/)
             }
 
             function fix_group_titles(line) {
               if (match(line, /group-title="[^"]*"/)) {
                 gt = substr(line, RSTART, RLENGTH)
 
-                if (gt ~ /Marathi/) sub(/group-title="[^"]*"/, "group-title=\"Entertainment\"", line)
-                else if (gt ~ /English/) sub(/group-title="[^"]*"/, "group-title=\"Movies\"", line)
-                else if (gt ~ /Knowledge/) sub(/group-title="[^"]*"/, "group-title=\"Infotainment\"", line)
-                else if (gt ~ /Education/) sub(/group-title="[^"]*"/, "group-title=\"Educational\"", line)
+                if (gt ~ /Marathi/) {
+                  sub(/group-title="[^"]*"/, "group-title=\"Entertainment\"", line)
+                }
+                else if (gt ~ /English/) {
+                  sub(/group-title="[^"]*"/, "group-title=\"Movies\"", line)
+                }
+                else if (gt ~ /Knowledge/) {
+                  sub(/group-title="[^"]*"/, "group-title=\"Infotainment\"", line)
+                }
+                else if (gt ~ /Education/) {
+                  sub(/group-title="[^"]*"/, "group-title=\"Educational\"", line)
+                }
               }
               return line
             }
 
             function custom_group_edit(line) {
-              # 🔥 FORCE Sony BBC Earth → Infotainment
+
+              # Sony BBC Earth → Infotainment
               if (tolower(line) ~ /sony bbc earth/) {
-                gsub(/group-title="[^"]*"/, "group-title=\"Infotainment\"", line)
+                sub(/group-title="[^"]*"/, "group-title=\"Infotainment\"", line)
               }
+
+              # Zee Anmol Cinema 2 → Movies
+              if (tolower(line) ~ /zee anmol cinema 2/) {
+                sub(/group-title="[^"]*"/, "group-title=\"Movies\"", line)
+              }
+
               return line
             }
 
@@ -95,38 +110,30 @@ jobs:
 
             ' sources/jai_raw.m3u
 
-          } > sources/jai_clean.m3u
+          } > sources/jai.tmp
 
-
-      # ✅ NEW STEP: STRICT DEDUP (FIX YOUR ISSUE)
-      - name: Deduplicate channels (correct way)
-        run: |
+          # ---------- DEDUP (FIXED) ----------
           awk '
-          /^#EXTINF/ {
-            line=$0
+            /^#EXTINF/ {
+              name = $0
+              sub(/.*?,/, "", name)
 
-            name=line
-            sub(/.*?,/, "", name)
+              key = tolower(name)
+              gsub(/^[ \t]+|[ \t]+$/, "", key)
 
-            key=tolower(name)
-            gsub(/^[ \t]+|[ \t]+$/, "", key)
-
-            if (!(key in seen)) {
-              seen[key]=1
-              keep=1
-              print line
-            } else {
-              keep=0
+              if (!(key in seen)) {
+                seen[key] = 1
+                keep = 1
+                print
+              } else {
+                keep = 0
+              }
+              next
             }
-            next
-          }
+            keep { print }
+          ' sources/jai.tmp > sources/jai.vxn
 
-          keep { print }
-
-          ' sources/jai_clean.m3u > sources/jai.vxn
-
-          rm -f sources/jai_clean.m3u sources/jai_raw.m3u
-
+          rm -f sources/jai.tmp sources/jai_raw.m3u
 
       - name: Commit and push
         run: |
