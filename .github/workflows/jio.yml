@@ -10,50 +10,74 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # --------------------------------------------
-      # STEP 1: CHECKOUT
-      # --------------------------------------------
+      # ============================================
+      # STEP 1: CHECKOUT REPOSITORY
+      # ============================================
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # --------------------------------------------
-      # STEP 2: PREPARE FOLDER
-      # --------------------------------------------
+      # ============================================
+      # STEP 2: PREPARE WORKING DIRECTORY
+      # ============================================
       - name: Prepare sources folder
         run: mkdir -p sources
 
-      # --------------------------------------------
-      # STEP 3: DOWNLOAD SOURCE
-      # --------------------------------------------
+      # ============================================
+      # STEP 3: DOWNLOAD SOURCE PLAYLIST
+      # ============================================
       - name: Download Jio playlist
         env:
           SRC_JTV: ${{ secrets.SRC_JTV }}
         run: |
           set -e
+          if [ -z "$SRC_JTV" ]; then
+            echo "ERROR: SRC_JTV secret is not set"
+            exit 1
+          fi
           wget -q -O sources/jai_raw.m3u "$SRC_JTV"
 
-      # --------------------------------------------
-      # STEP 4: FILTER + MERGE BUSINESS INTO NEWS
-      #         + ENSURE HEADER + BLANK LINE
-      # --------------------------------------------
+      # ============================================
+      # STEP 4: CLEAN + FILTER PLAYLIST
+      # ============================================
       - name: Clean playlist
         run: |
           {
             echo "#EXTM3U"
             echo
+
             awk '
             BEGIN { IGNORECASE=1; keep=0 }
 
-            # -------- BLOCK LIST (ALL CHANNELS) --------
+            # ----------------------------------------
+            # BLOCK LIST FUNCTION
+            # ----------------------------------------
             function is_blocked(line) {
               return (line ~ /tamil|telugu|kannada|bangla|malayalam|english|test|wow|swayam|sathee|ap-|yadagiri|vidya|gujarat|bengali|asianet|maa|ptc|vijay|etv|aath|rongeen|raj|punjab|manorama|mahaa|jaya|gemini|udaya|salaam|surya|adithya|Cartoon Network Hindi$|amrita|colors super$|arunprabha|girnar|kashir|oriya|saptagiri|urdu|podhigai|desi c|desi n|desika|kairali|jalsha|studio|apex|flower|jonack|kalaignar|makkal|may|mk|moon|nakshatra|bangalore|peppers|polimer|puthu|sanjha|sidharth|spondon|kiran|sun tv|sundrani|suvarna|thanthi|vaanavil|vasanth|vendhar|vissa|jomjomat|j movies|ktv|maha|mahua|pitaara|public m|sun life|tabbar|thalaa|e 24$|chintu|chutti|kochu|kushi|naap|east|sun music|sun news|nick junior|sonic marathi$|rang|sristi|teh|4 tv|6 tv|10 tv|99 tv|ananda|asmita|ganga|abc|abn|chanakya|harya|mp|ghanta|kalak|jhar|nepal|taiwan|karn|kera|bihar|mh|pradesh|him|goman|kau|logy|uk|svbc|news up|bhoj|balle|7x|kappa|record|only|oye|rs bh|dhenu|tune|angel|bhakti tv|calvary|win|divya v|dharmam|gurk|nambikkai|mercy|goodness|jothi|madha|powervision|shalom|ayush|vanitha|jio e|jio s|jiog|cvr|kite|hhdl|grace|aradh|bhawan|adhyatam|atma|subhav|om tv|subhsandesh|shubhsan|prabhu sandesh|harvest|medha|ptd|gyanv|set sd|fakt|oscar|k mar|+ mar|go mar|aarya|zb|thirai|ee power|cinemalu|roja|amar d|channel vision|captain$|brio|friends tv|kannur|tank|sana tv|sana plus|jio home|bhakthi siri|bvtv|gospel|hosanna|prar|popli|loveworld|t sat|sanjh|malanadu|purnima|janapriyam|sarthak|steelbird|sikh|peace music|alankar|centa|icmai|book|stingray|dangal/)
             }
 
-            # -------- NEWS ALLOW LIST --------
+            # ----------------------------------------
+            # NEWS ALLOW LIST FUNCTION
+            # ----------------------------------------
             function is_allowed_news(line) {
               return (line ~ /zee|aaj tak|ndtv|india|today|cnn|cnbc|abp|top|euro|asia|republic|wion|bharat|dd|sansad|lok|nation|firstpost|now/)
             }
 
+            # ----------------------------------------
+            # DEMO BLOCK: CUSTOM GROUP-TITLE EDIT
+            # (SAFE - DOES NOTHING CURRENTLY)
+            # Modify condition inside if() to activate
+            # ----------------------------------------
+            function custom_group_edit(line) {
+              # Example (disabled):
+              # if (line ~ /Star Sports/) {
+              #   gsub(/group-title="Sports"/, "group-title=\"Premium Sports\"", line)
+              # }
+              return line
+            }
+
+            # ----------------------------------------
+            # MAIN PROCESSING BLOCK
+            # ----------------------------------------
             /^#EXTINF/ {
 
               is_news = ($0 ~ /group-title="News"/ || $0 ~ /group-title="Business News"/)
@@ -63,8 +87,11 @@ jobs:
                   keep=1
                   gsub(/group-title="Business News"/, "group-title=\"News\"", $0)
                   gsub(/group-title="Education"/, "group-title=\"Educational\"", $0)
-                  gsub(/group-title="Marathi"/, "group-title=\"Entertainment\"", $0)        
+                  gsub(/group-title="Marathi"/, "group-title=\"Entertainment\"", $0)
                   gsub(/group-title="English"/, "group-title=\"Movies\"", $0)
+                  gsub(/group-title="Knowledge"/, "group-title=\"Infotainment\"", $0)
+
+                  $0 = custom_group_edit($0)
                   print
                 } else {
                   keep=0
@@ -77,20 +104,24 @@ jobs:
               } else {
                 keep=1
                 gsub(/group-title="Education"/, "group-title=\"Educational\"", $0)
+
+                $0 = custom_group_edit($0)
                 print
               }
               next
             }
 
             { if (keep==1) print }
+
             ' sources/jai_raw.m3u
+
           } > sources/jai.vxn
 
           rm -f sources/jai_raw.m3u
 
-      # --------------------------------------------
-      # STEP 5: COMMIT
-      # --------------------------------------------
+      # ============================================
+      # STEP 5: COMMIT & PUSH CHANGES
+      # ============================================
       - name: Commit and push
         run: |
           git config user.name "github-actions"
