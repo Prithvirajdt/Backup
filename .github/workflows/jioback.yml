@@ -59,7 +59,7 @@ jobs:
             # NEWS ALLOW LIST FUNCTION
             # ----------------------------------------
             function is_allowed_news(line) {
-              return (line ~ /zee|aaj tak|ndtv|india|today|cnn|cnbc|abp|top|euro|asia|republic|wion|bharat|dd|sansad|lok|nation|firstpost|now/)
+              return (line ~ /zee|aaj tak|ndtv|india|today|cnn|cnbc|abp|top|euro|asia|republic|wion|bharat|dd|sansad|lok|nation|firstpost|bloomberg|now/)
             }
 
             # ----------------------------------------
@@ -92,12 +92,12 @@ jobs:
 
               $0 = fix_group_titles($0)
 
-              is_news = ($0 ~ /group-title="News"/ || $0 ~ /group-title="Business News"/)
+              is_news = ($0 ~ /group-title="News"/ || $0 ~ /group-title="Business"/)
 
               if (is_news) {
                 if (!is_blocked($0) && is_allowed_news($0)) {
                   keep=1
-                  sub(/group-title="Business News"/, "group-title=\"News\"", $0)
+                  sub(/group-title="Business"/, "group-title=\"News\"", $0)
                   print
                 } else {
                   keep=0
